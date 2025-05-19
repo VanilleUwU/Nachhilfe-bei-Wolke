@@ -55,13 +55,26 @@ section {
 @media (min-width: 1440px) { .container { width: 75%; max-width: 1280px; } }
 
 /* ---------- Hero ---------- */
+/* ---------- Hero ---------- */
 .hero {
   background: radial-gradient(circle at top left, #EADDFF 0%, #6750A4 70%);
   color: #FFF;
   text-align: center;
-  padding: clamp(6rem, 12vw, 9rem) 1rem clamp(5rem, 10vw, 7rem);
+  padding: clamp(5rem, 12vw, 9rem) 1rem clamp(4rem, 10vw, 7rem);
   overflow: hidden;
 }
+
+/* • kleineres Mindest-Font-Size  
+   • weicher Skalierungsfaktor (vw)  
+   • automatischer Zeilenumbruch & Silbentrennung */
+.hero h1 {
+  font-size: clamp(1.8rem, 9vw + .1rem, 4rem);
+  line-height: 1.15;
+  text-wrap: balance;     /* modern Browser */
+  word-break: break-word; /* Fallback */
+  hyphens: auto;
+}
+
 
 .price {
   display: inline-block;
