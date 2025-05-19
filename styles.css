@@ -1,126 +1,180 @@
-body {
-    background-color: #f3e6ff;
-    font-family: 'Quicksand', sans-serif;
-    color: #333333;
-    text-align: center;
-    padding: 40px;
-    margin: 0;
-    line-height: 1.7; /* das ist der Zeilenabstand */
+/* ---------- Basis-Variablen ---------- */
+:root {
+  --font-body: 'Quicksand', sans-serif;
+  --font-display: 'Fredoka', sans-serif;
 }
 
-.container {
-    max-width: 700px;
-    margin: auto;
-    background-color: #f7f7f7;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+/* ---------- Reset ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: #1C1B1F;
+  line-height: 1.6;
+  background: #FFF;
+  scroll-behavior: smooth;
+}
+
+/* ---------- Typografie ---------- */
+h1, h2 {
+  font-family: var(--font-display);
+  margin: 0 0 .5rem;
+  letter-spacing: .5px;
 }
 
 h1 {
-    color: #222;
-    font-size: 34px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-size: clamp(2.2rem, 5vw + .5rem, 4rem);
 }
 
-.icon {
-    font-family: 'Material Icons';
-    font-size: 40px;
-    color: #e91e63;
-    display: block;
-    margin-bottom: 10px;
+h2 {
+  font-size: clamp(1.5rem, 2.5vw + .2rem, 2.5rem);
 }
 
-.icon.small {
-    font-size: 20px;
-    vertical-align: middle;
-    margin-right: 5px;
-    color: #ff9800;
+p {
+  font-size: clamp(1rem, 2vw + .2rem, 1.125rem);
 }
 
-.preis {
-    font-size: 22px;
-    color: #555;
-    margin-top: 5px;
+/* ---------- Layout ---------- */
+section {
+  position: relative;
+  padding: clamp(3rem, 6vw, 6rem) 1rem;
 }
 
-hr {
-    margin: 25px 0;
-    border: none;
-    height: 1px;
-    background-color: #ddd;
+.container {
+  width: 90%;
+  max-width: 540px;
+  margin: auto;
 }
 
-.kontakt {
-    margin-top: 20px;
-    font-weight: 600;
+/* ---------- Breakpoints ---------- */
+@media (min-width: 600px)  { .container { width: 85%; max-width: 720px; } }
+@media (min-width: 1024px) { .container { width: 80%; max-width: 1040px; } }
+@media (min-width: 1440px) { .container { width: 75%; max-width: 1280px; } }
+
+/* ---------- Hero ---------- */
+.hero {
+  background: radial-gradient(circle at top left, #EADDFF 0%, #6750A4 70%);
+  color: #FFF;
+  text-align: center;
+  padding: clamp(6rem, 12vw, 9rem) 1rem clamp(5rem, 10vw, 7rem);
+  overflow: hidden;
 }
 
-a {
-    color: #444;
-    text-decoration: none;
+.price {
+  display: inline-block;
+  background: #EADDFF;
+  color: #6750A4;
+  padding: .25rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  margin: 1rem 0 2rem;
 }
 
-a:hover {
-    text-decoration: underline;
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: 0;
 }
 
-.emoji {
-    font-style: normal;
-}
-.button {
-    display: inline-block;
-    padding: 12px 20px;
-    margin-top: 10px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s;
+/* ---------- Subjects ---------- */
+#subjects {
+  background: rgb(var(--mdui-color-secondary-container));
 }
 
-.button.email {
-    background-color: #ffcccb;
-    color: #000;
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5rem;
+  margin-top: 1rem;
 }
 
-.button.whatsapp {
-    background-color: #d4f5d4;
-    color: #000;
+.chips mdui-chip {
+  cursor: pointer;
+  transition: transform .15s ease;
 }
 
-.button:hover {
-    opacity: 0.85;
+.chips mdui-chip:hover   { transform: scale(1.07); }
+.chips mdui-chip:active  { transform: scale(.94);  }
+
+.subject-text {
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity .3s ease;
+  font-family: var(--font-body);
 }
 
-.icon {
-    font-family: 'Material Icons';
-    font-size: 40px;
-    color: #e91e63;
-    display: inline-block;
-    margin: 5px 8px;
-}
-@media (max-width: 600px) {
-    .container {
-        padding: 20px;
-        border-radius: 12px;
-    }
+.subject-text.show { opacity: 1; }
 
-    h1 {
-        font-size: 24px;
-    }
-
-    .preis {
-        font-size: 18px;
-    }
-
-    .icon {
-        font-size: 32px;
-    }
-
-    .button {
-        padding: 10px 16px;
-        font-size: 16px;
-    }
+/* ---------- Call-to-Action ---------- */
+.end-cta {
+  background: radial-gradient(circle at bottom right, #EADDFF 0%, #6750A4 70%);
+  color: #FFF;
+  text-align: center;
+  padding: clamp(4rem, 8vw, 6rem) 1rem;
 }
 
+.end-cta mdui-button { margin-top: 1.5rem; }
+
+/* ---------- Floating Contact ---------- */
+.contact-float {
+  position: fixed;
+  right: .75rem;
+  bottom: .75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: .6rem;
+  z-index: 1000;
+}
+
+.contact-float mdui-fab {
+  animation: float 3.5s ease-in-out infinite;
+}
+
+.contact-info {
+  background: rgb(var(--mdui-color-surface));
+  padding: .5rem .75rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+  font-size: .875rem;
+  text-align: right;
+  line-height: 1.4;
+  font-family: var(--font-body);
+}
+
+.contact-info a {
+  color: rgb(var(--mdui-color-primary));
+  text-decoration: none;
+}
+
+.contact-info a:hover { text-decoration: underline; }
+
+/* ---------- Animation / Effects ---------- */
+.fade-section {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .6s ease-out, transform .6s ease-out;
+}
+
+.fade-section.show {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0);  }
+  50%      { transform: translateY(-5px); }
+}
+
+/* ---------- Contact Floating Breakpoints ---------- */
+@media (min-width: 480px)  { .contact-float { right: 1rem;   bottom: 1rem;   } }
+@media (min-width: 768px)  { .contact-float { right: 1.25rem; bottom: 1.25rem;} }
+@media (min-width: 1440px) { .contact-float { right: 1.75rem; bottom: 1.75rem;} }

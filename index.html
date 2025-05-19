@@ -1,46 +1,89 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="de">
+<!doctype html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<title>Nachhilfe & Hausaufgabenbetreuung</title>
-	<link rel="icon" type="image/x-icon" href="favicon.ico">
-	
-	
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Nachhilfe & Hausaufgabenbetreuung</title>
+
+  <!-- dynamisches Material-Favicon -->
+  <link id="favicon" rel="icon" type="image/png">
+
+  <!-- Google-Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Material-CSS & eigene Styles -->
+  <link rel="stylesheet" href="https://unpkg.com/mdui@2/mdui.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/mdui@2/mdui.global.js" type="module"></script>
+  <script src="script.js" defer></script>
 </head>
-<body>
-    <div class="container">
-        <span class="icon">school</span>
-        <span class="icon">menu_book</span>
-        <span class="icon">favorite</span>
 
-        <h1>Nachhilfe & Hausaufgabenbetreuung</h1>
-        <p class="preis"><strong>13 € / Stunde</strong></p>
-        <hr>
+<header class="hero">
+  <div class="container">
+    <h1>Nachhilfe&nbsp;&amp; Hausaufgabenbetreuung</h1>
+    <span class="price">13 € / h</span>
+    <p>Individuelle Unterstützung für Schülerinnen und Schüler der Klassen&nbsp;1 – 5.</p>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none">
+    <path fill="#ffffff" d="M0,32L1440,80V0H0Z"/>
+  </svg>
+</header>
 
-        <p><strong>Hallo liebe Eltern / liebe Kinder,</strong></p>
-        <p>Mein Name ist Wolke, ich bin 18 Jahre alt und biete euch Nachhilfe oder auch Hausaufgabenbetreuung von der 1. bis zur 5. Klasse an.</p>
-        <p>Ich bin sehr freundlich und arbeite gern mit Kindern & Jugendlichen zusammen.</p>
-        <p>Ich bin zuverlässig, geduldig und auch spontan :)</p>
-        <p>Mein Spezialgebiet ist <strong>Deutsch</strong>, aber ich helfe auch gerne in <strong>Kunst, Musik</strong> oder <strong>Mathe</strong>.</p>
+<section id="about" class="fade-section">
+  <div class="container">
+    <h2>Über mich</h2>
+    <p>Hallo liebe Eltern, hallo liebe Kinder!</p>
+    <p>Ich heiße Wolke, bin 18 Jahre alt und biete euch Nachhilfe sowie Hausaufgaben­betreuung für die Klassen 1 bis 5 an.</p>
+    <p>Ich arbeite gern mit Kindern und Jugendlichen zusammen, bin zuverlässig, geduldig und flexibel.</p>
+    <p>Mein Schwerpunkt liegt in Deutsch; gern unterstütze ich aber auch in Kunst, Musik oder Mathematik.</p>
+    <p>Ich freue mich darauf, von euch zu hören, und hoffe auf eine tolle Zusammenarbeit!</p>
+    <p>Liebe Grüße<br>Wolke</p>
+  </div>
+</section>
 
-        <p style="font-style: italic; margin-top: 20px;"><em>Ich würde mich sehr freuen, von euch zu hören<br>und hoffe auf eine tolle Zusammenarbeit!</em></p>
-        <p><strong>Liebe Grüße<br>Wolke</strong></p>
-
-        <hr>
-
-        <div class="kontakt">
-            <p><strong>Ihr könnt mich erreichen:</strong></p>
-            <a class="button email" href="mailto:wolkeweiher@gmail.com">
-                <span class="icon small">mail</span> E-Mail schreiben
-            </a><br><br>
-            <a class="button whatsapp" href="https://wa.me/491631923569" target="_blank">
-                <span class="icon small">chat</span> WhatsApp: 0163 1923569
-            </a>
-        </div>
+<section id="subjects" class="fade-section">
+  <div class="container">
+    <h2 style="text-align:center">Fächer</h2>
+    <div class="chips">
+      <mdui-chip variant="filter" selected data-subject="de">
+        <i class="material-icons" slot="icon">menu_book</i> Deutsch
+      </mdui-chip>
+      <mdui-chip variant="filter" data-subject="ku">
+        <i class="material-icons" slot="icon">palette</i> Kunst
+      </mdui-chip>
+      <mdui-chip variant="filter" data-subject="mu">
+        <i class="material-icons" slot="icon">music_note</i> Musik
+      </mdui-chip>
+      <mdui-chip variant="filter" data-subject="ma">
+        <i class="material-icons" slot="icon">calculate</i> Mathematik
+      </mdui-chip>
     </div>
+    <div id="subject-desc" class="subject-text show" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="end-cta">
+  <div class="container">
+    <h2>Bereit für bessere Noten?</h2>
+    <mdui-button variant="filled" href="mailto:wolke@example.de">Jetzt anfragen</mdui-button>
+  </div>
+</section>
+
+<div class="contact-float" aria-label="Schnellkontakt">
+  <mdui-fab icon="mail" href="mailto:wolke@example.de" aria-label="E-Mail senden"></mdui-fab>
+  <mdui-fab icon="call" href="tel:+491234567890" aria-label="Anrufen"></mdui-fab>
+  <div class="contact-info">
+    <a href="mailto:wolke@example.de">wolke@example.de</a><br>
+    <a href="tel:+491234567890">+49&nbsp;123&nbsp;4567890</a>
+  </div>
+</div>
+
 </body>
 </html>
