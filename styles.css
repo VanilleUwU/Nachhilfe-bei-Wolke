@@ -56,6 +56,7 @@ section {
 
 /* ---------- Hero ---------- */
 /* ---------- Hero ---------- */
+/* ---------- Hero ---------- */
 .hero {
   background: radial-gradient(circle at top left, #EADDFF 0%, #6750A4 70%);
   color: #FFF;
@@ -64,15 +65,12 @@ section {
   overflow: hidden;
 }
 
-/* • kleineres Mindest-Font-Size  
-   • weicher Skalierungsfaktor (vw)  
-   • automatischer Zeilenumbruch & Silbentrennung */
+/* Headline passt sich jetzt auf sehr schmale Displays an */
 .hero h1 {
-  font-size: clamp(1.8rem, 9vw + .1rem, 4rem);
-  line-height: 1.15;
-  text-wrap: balance;     /* modern Browser */
-  word-break: break-word; /* Fallback */
-  hyphens: auto;
+  font-size: clamp(1.4rem, 7vw + .2rem, 3.5rem); /* kleinerer Start- & Max-Wert */
+  line-height: 1.2;
+  overflow-wrap: anywhere;     /* zwingt lange Wörter zum Umbrechen */
+  hyphens: auto;               /* weiche Trennstriche, falls Browser unterstützt */
 }
 
 
